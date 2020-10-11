@@ -116,6 +116,41 @@ input:focus {
   border-bottom: solid 2px transparent;
 }
 
+.trash.icon {
+  color: #fff;
+  position: absolute;
+  margin-top: -2px;
+  width: 9px;
+  height: 10px;
+  border-left: solid 1px currentColor;
+  border-right: solid 1px currentColor;
+  border-bottom: solid 1px currentColor;
+  border-radius: 0 0 2px 2px;
+}
+
+.trash.icon:before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: -2px;
+  width: 17px;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.trash.icon:after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: -5px;
+  width: 7px;
+  height: 2px;
+  border-left: solid 1px currentColor;
+  border-right: solid 1px currentColor;
+  border-top: solid 1px currentColor;
+  border-radius: 4px 4px 0 0;
+}
+
 /* Component Todo */
 .todo {
   margin: 2% auto;

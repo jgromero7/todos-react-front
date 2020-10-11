@@ -19,7 +19,7 @@ class TodoView extends Component {
 
     completeTodo = id => {
         this.setState({ onLoadProcess: true });
-        HttpTodosServices.complete({ id, isCompleted: true })
+        HttpTodosServices.complete({ id, isCompleted: !this.state.todo.isCompleted })
             .then(({data}) => {
                 this.state.refreshData();
                 this.setState({ errorMsg: '', onLoadProcess: false });
@@ -59,17 +59,16 @@ class TodoView extends Component {
                 
                 { onLoadProcess ? <SpinnerLoading /> : null }
                 <div className="todo-bottons">
-                    {
-                        todo.isCompleted ? null :
-                        <div>
-                            <button className="btn btn-todo-complete" onClick={() => this.completeTodo(todo._id)} disabled={onLoadProcess}><span>&#10003;</span></button>
-                        </div>
-                    }
+                    <div>
+                        <button className={ `btn ${ todo.isCompleted ? 'btn-todo-update' : 'btn-todo-complete'}` } onClick={() => this.completeTodo(todo._id)} disabled={onLoadProcess}>
+                            { todo.isCompleted ? <span>&#10007;</span> : <span>&#10003;</span> }
+                        </button>
+                    </div>
                     <div>
                         <button className="btn btn-todo-update" onClick={() => updateTodo(todo._id)} disabled={onLoadProcess}><div className="edit-solid icon"></div></button>
                     </div>
                     <div>
-                        <button className="btn btn-todo-delete" onClick={() => this.destroyTodo(todo._id)} disabled={onLoadProcess}><span>&#10007;</span></button>
+                        <button className="btn btn-todo-delete" onClick={() => this.destroyTodo(todo._id)} disabled={onLoadProcess}><div class="trash icon"></div></button>
                     </div>
                 </div>
             </div>
