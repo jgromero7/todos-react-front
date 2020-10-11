@@ -1,0 +1,39 @@
+/* Animation */
+.animation-loader {
+    --size: 1rem;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: var(--size);
+    transform: translateY(-50%);
+}
+
+.dot {
+    background-color: grey;
+    height: 2px;
+}
+.dot {
+    animation: ani 1s ease-in-out infinite alternate forwards;
+}
+
+.blue {
+    background-color: var(--blue);
+    animation-delay: 0.2s;
+}
+.red {
+    background-color: var(--red);
+    animation-delay: 0.4s;
+}
+.yellow {
+    background-color: var(--yellow);
+    animation-delay: 0.6s;
+}
+.green {
+    background-color: var(--green);
+    animation-delay: 0.8s;
+}
+
+@keyframes ani {
+    to {
+        transform: translateY(1rem);
+    }
+}
